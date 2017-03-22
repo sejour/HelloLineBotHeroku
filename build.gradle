@@ -27,9 +27,6 @@ repositories {
 
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    // compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
 }
-
-//defaultTasks "clean", "build"
