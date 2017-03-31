@@ -8,6 +8,7 @@ import tech.sejour.diamond.event.matcher.annotation.TextIsIntegerValue;
 import tech.sejour.diamond.script.Scene;
 import tech.sejour.diamond.script.annotation.DialogScript;
 import tech.sejour.diamond.transition.ContinueDialog;
+import tech.sejour.diamond.transition.KeepDialog;
 import tech.sejour.diamond.transition.NextDialog;
 
 /**
@@ -53,8 +54,8 @@ public class InputScene extends Scene {
         }
 
         @ReplyMapping
-        private ContinueDialog receiveContinue(Event event) {
-            return ContinueDialog.requestWithMessage("年齢を数字で入力してください。");
+        private KeepDialog receiveContinue(Event event) {
+            return KeepDialog.requestWithMessage("年齢を数字で入力してください。");
         }
 
     }
