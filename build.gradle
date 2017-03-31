@@ -26,9 +26,9 @@ repositories {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'com.linecorp.bot', name: 'line-bot-spring-boot', version: '1.6.0'
-    compile files('/Users/Shuka/Projects/LineBotService/diamond/build/libs/diamond-0.1.1.jar')
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
 }
