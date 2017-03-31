@@ -33,11 +33,11 @@ public class InputScene extends Scene {
     }
 
     @Dialog(2)
-    class Ending {
+    class Dialog2 {
 
         private final String name;
 
-        public Ending(String name) {
+        public Dialog2(String name) {
             this.name = name;
         }
 
@@ -55,6 +55,19 @@ public class InputScene extends Scene {
         @ReplyMapping
         private ContinueDialog receiveContinue(Event event) {
             return ContinueDialog.requestWithMessage("年齢を数字で入力してください。");
+        }
+
+    }
+
+    @Dialog(3)
+    class Dialog3 {
+
+        @Message
+        final String message = "場所を入力してください。";
+
+        @ReplyMapping
+        public NextDialog receive(String place) {
+            return NextDialog.requestWithMessage("場所は" + place + "ですね。");
         }
 
     }
