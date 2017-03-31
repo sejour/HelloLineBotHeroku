@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['diamond-0.1.5.jar'])
+    compile fileTree(dir: 'libs', include: ['diamond-0.1.6.jar'])
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'com.linecorp.bot', name: 'line-bot-spring-boot', version: '1.6.0'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
