@@ -10,6 +10,9 @@ build/
 *.war
 *.ear
 
+# Librarys
+!libs/*.jar
+
 # Gradle Wrapper
 !gradle-wrapper.jar
 
