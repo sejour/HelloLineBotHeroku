@@ -7,15 +7,15 @@ import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
-@LineMessageHandler
+//@LineMessageHandler
 public class MessageHandler {
 
-    @EventMapping
+    //@EventMapping
     public TextMessage handleTextMessage(MessageEvent<TextMessageContent> event) {
         return new TextMessage("> " + event.getMessage().getText());
     }
 
-    @EventMapping
+    //@EventMapping
     public TextMessage handleDefault(Event event) {
         return new TextMessage("hello " + event.getSource().getSenderId());
     }
