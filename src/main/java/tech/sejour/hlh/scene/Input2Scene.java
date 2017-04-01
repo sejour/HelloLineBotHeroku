@@ -28,12 +28,12 @@ public class Input2Scene extends Scene {
     @Dialog(1)
     class School {
 
-        @Message
+        @Message(order = 1)
         public String date() {
             return date == null ? "null" : date.toString();
         }
 
-        @Message
+        @Message(order = 2)
         final String message = "将来の夢を教えて下さい。";
 
         @ReplyMapping
