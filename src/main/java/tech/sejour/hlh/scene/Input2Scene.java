@@ -4,8 +4,12 @@ import com.linecorp.bot.model.event.message.TextMessageContent;
 import tech.sejour.diamond.dialog.annotation.Dialog;
 import tech.sejour.diamond.dialog.message.annotation.Message;
 import tech.sejour.diamond.dialog.reply.annotation.ReplyMapping;
-import tech.sejour.diamond.script.Scene;
-import tech.sejour.diamond.script.annotation.DialogScript;
+import tech.sejour.diamond.scene.Scene;
+import tech.sejour.diamond.scene.annotation.Appeared;
+import tech.sejour.diamond.scene.annotation.DialogScript;
+import tech.sejour.diamond.scene.annotation.Entered;
+
+import java.util.Date;
 
 /**
  * Created by Shuka on 2017/04/01.
@@ -13,8 +17,21 @@ import tech.sejour.diamond.script.annotation.DialogScript;
 @DialogScript
 public class Input2Scene extends Scene {
 
+    private Date date = null;
+
+    @Entered
+    public void entered() {
+        System.out.println("entered");
+        date = new Date();
+    }
+
     @Dialog(1)
     class School {
+
+        @Message
+        public String date() {
+            return date == null ? "null" : date.toString();
+        }
 
         @Message
         final String message = "将来の夢を教えて下さい。";
@@ -37,6 +54,11 @@ public class Input2Scene extends Scene {
 
         }
 
+    }
+
+    @Appeared
+    public void appeared() {
+        System.out.println("appeared");
     }
 
 }

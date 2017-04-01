@@ -5,8 +5,8 @@ import tech.sejour.diamond.dialog.annotation.Dialog;
 import tech.sejour.diamond.dialog.message.annotation.Message;
 import tech.sejour.diamond.dialog.reply.annotation.ReplyMapping;
 import tech.sejour.diamond.event.matcher.annotation.TextIsIntegerValue;
-import tech.sejour.diamond.script.Scene;
-import tech.sejour.diamond.script.annotation.DialogScript;
+import tech.sejour.diamond.scene.Scene;
+import tech.sejour.diamond.scene.annotation.DialogScript;
 import tech.sejour.diamond.transition.*;
 
 /**
