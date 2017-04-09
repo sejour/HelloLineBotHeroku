@@ -1,13 +1,20 @@
 package tech.sejour.hlh.scene;
 
+import com.linecorp.bot.model.event.Event;
 import tech.sejour.diamond.dialog.annotation.Dialog;
 import tech.sejour.diamond.dialog.message.annotation.Message;
 import tech.sejour.diamond.dialog.reply.annotation.ReplyMapping;
+import tech.sejour.diamond.dialog.template.ConfirmDialog;
+import tech.sejour.diamond.dialog.template.annotation.No;
+import tech.sejour.diamond.dialog.template.annotation.Postback;
+import tech.sejour.diamond.dialog.template.annotation.Yes;
 import tech.sejour.diamond.event.matcher.annotation.TextIsIntegerValue;
 import tech.sejour.diamond.scene.Scene;
 import tech.sejour.diamond.scene.annotation.Appeared;
 import tech.sejour.diamond.scene.annotation.DialogScript;
 import tech.sejour.diamond.scene.annotation.Entered;
+import tech.sejour.diamond.transition.ContinueDialog;
+import tech.sejour.diamond.transition.ExitScene;
 import tech.sejour.diamond.transition.NextDialog;
 
 import java.util.Date;
@@ -45,28 +52,27 @@ public class Input2Scene extends Scene {
     }
 
     @Dialog(2)
-    class Brothers {
+    class Brothers implements ConfirmDialog {
 
-        @Message
-        final String message = "兄弟姉妹はいますか？";
-
-        @ReplyMapping
-        public void receive(String message) {
-
-        }
-
-        /*
-        @Yes(order = 1)
+        @Yes(order = 1, displayAction = false)
         public NextDialog yes() {
-
+            return NextDialog.request();
         }
 
-        @Postback(order = 2)
+        @No(order = 2, displayAction = false)
         public ExitScene no() {
             return new ExitScene("一人っ子なんですね。");
         }
-        */
 
+        @ReplyMapping
+        public ContinueDialog receiveDefault(Event event) {
+            return ContinueDialog.request();
+        }
+
+        @Override
+        public String text() {
+            return "兄弟姉妹はいますか？";
+        }
     }
 
     @Dialog(3)
