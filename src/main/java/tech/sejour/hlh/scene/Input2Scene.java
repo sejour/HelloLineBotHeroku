@@ -54,7 +54,7 @@ public class Input2Scene extends Scene {
 
     }
 
-    @Dialog(2)
+    @Dialog(value = 2, eventUnhandledMessage = "「はい」または「いいえ」で入力してください。")
     class Brothers extends ConfirmDialog {
 
         @Override
