@@ -1,6 +1,7 @@
 package tech.sejour.hlh.scene;
 
 import com.linecorp.bot.model.event.Event;
+import tech.sejour.diamond.dialog.EventUnhandledTransition;
 import tech.sejour.diamond.dialog.annotation.Dialog;
 import tech.sejour.diamond.dialog.extension.ExtendedDialogSupporter;
 import tech.sejour.diamond.dialog.message.annotation.Message;
@@ -66,10 +67,12 @@ public class Input2Scene extends Scene {
             return new ExitScene("一人っ子なんですね。");
         }
 
+        /*
         @ReplyMapping
         public ContinueDialog receiveDefault(Event event) {
             return ContinueDialog.request();
         }
+        */
 
         @Override
         public String text() {
