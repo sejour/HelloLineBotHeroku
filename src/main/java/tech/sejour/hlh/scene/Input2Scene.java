@@ -69,7 +69,7 @@ public class Input2Scene extends Scene {
 
         @No(order = 1)
         public ExitScene no() {
-            return new ExitScene("一人っ子なんですね。");
+            return ExitScene.requestWithMessage("一人っ子なんですね。");
         }
 
         /*
