@@ -57,12 +57,12 @@ public class Input2Scene extends Scene {
     @ExtendedDialogSupporter(ConfirmDialogSupport.class)
     class Brothers implements ConfirmDialog {
 
-        @Yes(order = 1, displayAction = false)
+        @Yes(order = 1)
         public NextDialog yes() {
             return NextDialog.request();
         }
 
-        @No(order = 2, displayAction = false)
+        @No(order = 2)
         public ExitScene no() {
             return new ExitScene("一人っ子なんですね。");
         }
