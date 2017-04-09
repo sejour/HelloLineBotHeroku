@@ -4,6 +4,7 @@ import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import tech.sejour.diamond.discussion.DiscussionOpeningRequest;
+import tech.sejour.diamond.event.annotation.AlwaysCatch;
 import tech.sejour.diamond.event.annotation.DiamondMessageHandler;
 import tech.sejour.diamond.event.matcher.annotation.TextEquals;
 
@@ -18,7 +19,7 @@ public class MessageHandler {
         return "default";
     }
 
-    @EventMapping
+    @EventMapping @AlwaysCatch
     public String receiveSticker(StickerMessageContent stickerMessageContent) {
         return "スタンプを受け取りました。";
     }
