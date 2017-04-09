@@ -57,12 +57,17 @@ public class Input2Scene extends Scene {
     @Dialog(2)
     class Brothers extends ConfirmDialog {
 
-        @Yes(order = 1)
+        @Override
+        public String text() {
+            return "兄弟姉妹はいますか？";
+        }
+
+        @Yes(order = 2)
         public NextDialog yes() {
             return NextDialog.request();
         }
 
-        @No(order = 2)
+        @No(order = 1)
         public ExitScene no() {
             return new ExitScene("一人っ子なんですね。");
         }
@@ -74,10 +79,6 @@ public class Input2Scene extends Scene {
         }
         */
 
-        @Override
-        public String text() {
-            return "兄弟姉妹はいますか？";
-        }
     }
 
     @Dialog(3)
