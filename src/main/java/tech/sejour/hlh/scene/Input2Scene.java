@@ -54,7 +54,7 @@ public class Input2Scene extends Scene {
     }
 
     @Dialog(2)
-    class Brothers implements ConfirmDialog {
+    class Brothers extends ConfirmDialog {
 
         @Yes(order = 1)
         public NextDialog yes() {
