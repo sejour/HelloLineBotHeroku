@@ -2,9 +2,11 @@ package tech.sejour.hlh.scene;
 
 import com.linecorp.bot.model.event.Event;
 import tech.sejour.diamond.dialog.annotation.Dialog;
+import tech.sejour.diamond.dialog.extension.ExtendedDialogSupporter;
 import tech.sejour.diamond.dialog.message.annotation.Message;
 import tech.sejour.diamond.dialog.reply.annotation.ReplyMapping;
 import tech.sejour.diamond.dialog.template.ConfirmDialog;
+import tech.sejour.diamond.dialog.template.ConfirmDialogSupport;
 import tech.sejour.diamond.dialog.template.annotation.No;
 import tech.sejour.diamond.dialog.template.annotation.Postback;
 import tech.sejour.diamond.dialog.template.annotation.Yes;
@@ -52,6 +54,7 @@ public class Input2Scene extends Scene {
     }
 
     @Dialog(2)
+    @ExtendedDialogSupporter(ConfirmDialogSupport.class)
     class Brothers implements ConfirmDialog {
 
         @Yes(order = 1, displayAction = false)
