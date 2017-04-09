@@ -1,13 +1,14 @@
 package tech.sejour.hlh.scene;
 
-import com.linecorp.bot.model.event.message.TextMessageContent;
 import tech.sejour.diamond.dialog.annotation.Dialog;
 import tech.sejour.diamond.dialog.message.annotation.Message;
 import tech.sejour.diamond.dialog.reply.annotation.ReplyMapping;
+import tech.sejour.diamond.event.matcher.annotation.TextIsIntegerValue;
 import tech.sejour.diamond.scene.Scene;
 import tech.sejour.diamond.scene.annotation.Appeared;
 import tech.sejour.diamond.scene.annotation.DialogScript;
 import tech.sejour.diamond.scene.annotation.Entered;
+import tech.sejour.diamond.transition.NextDialog;
 
 import java.util.Date;
 
@@ -50,8 +51,34 @@ public class Input2Scene extends Scene {
         final String message = "兄弟姉妹はいますか？";
 
         @ReplyMapping
-        public void receive(TextMessageContent textMessageContent) {
+        public void receive(String message) {
 
+        }
+
+        /*
+        @Yes(order = 1)
+        public NextDialog yes() {
+
+        }
+
+        @Postback(order = 2)
+        public ExitScene no() {
+            return new ExitScene("一人っ子なんですね。");
+        }
+        */
+
+    }
+
+    @Dialog(3)
+    class NumberOfPeople {
+
+        @Message
+        final String message = "兄弟姉妹は何人いますか？";
+
+        @ReplyMapping
+        @TextIsIntegerValue
+        public NextDialog receive(String number) {
+            return NextDialog.request();
         }
 
     }
